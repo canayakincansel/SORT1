@@ -1,4 +1,14 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <math.h> 
+
+void randomarray()
+{
+	int i,my_array[10];
+for (i = 0; i < 9; i++) {
+    my_array[i] = rand() % 100;
+}
+}
 
 void swap(int *xp, int *yp) 
 { 
@@ -102,11 +112,10 @@ int main(){
 	printf("1) Bir siralama algoritmasi secerek diziyi siralayiniz.\n");
 	printf("2) Tum siralama algoritmalarini karsilastiriniz.\n");
 	printf("seciminiz...:");
-	
-	
+
 	scanf("%d", &secim);
 	
-				if(secim==1){
+	if(secim==1){
 		
 	
 				printf("Siralama Algoritmasi Seciniz:\n");
@@ -136,23 +145,24 @@ int main(){
 									
 									default:
 											printf("HATA: Bilinmeyen bir deðer girdiniz!\n");
-										
+											return 0;
 									}
 						
 						printf("Siralama sekli:\n 1.	Kucukten Buyuge\n 2.	Buyukten Kucuge\n Seciminiz...:")	;	
 							scanf("%d", &secim3);
-							if(secim3==1)
-							{
+							if(secim3!=1 && secim3!=2)
+							printf("lutfen sadece 1-2 seceneklerini giriniz...");	
+							
+							int i,my_array[10];
+							for (i = 0; i < 10; i++)
+							    my_array[i] = rand() % 100;
+							    
+							    if (secim2==1)
+							    bubbleSort(my_array,10); 
+							    printArray(my_array,10);
+							   
+								
 							}
-							else if(secim3==2)
-							{
-
-							}	
-							
-							else 
-							printf("lutfen sadece 1-2 seceneklerini giriniz...");					
-							
-		    	}
 				else if (secim==2) 
 					printf("gelistiricez....");	
 				
