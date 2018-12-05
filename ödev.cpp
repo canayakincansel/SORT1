@@ -1,10 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h> 
+#include <time.h>
 
 void randomarray()
 {
 	int i,my_array[10];
+
 for (i = 0; i < 9; i++) {
     my_array[i] = rand() % 100;
 }
@@ -108,6 +110,7 @@ void printArray(int arr[], int size)
 int main(){
 	
 	int secim,secim2,secim3;
+		srand(time(NULL));
 	printf("===================== MENU ====================\n");
 	printf("1) Bir siralama algoritmasi secerek diziyi siralayiniz.\n");
 	printf("2) Tum siralama algoritmalarini karsilastiriniz.\n");
