@@ -185,11 +185,13 @@ int main(){
 					insertionSort(my_array,10);
 					printf("insertionSort ile kucukten buyuge siralanmis hali :");
 					printArray(my_array,10);
+					break;
 					
 					case 4:
 					shellSort(my_array,10);
 					printf("shellSort ile kucukten buyuge siralanmis hali :");
 					printArray(my_array,10);
+					break;
 				}
 		}
 		        if(secim3==2)
@@ -215,12 +217,14 @@ int main(){
 					reverseArray(my_array,0,9);
 					printf("insertionSort ile buyukten kucuge siralanmis hali :");
 					printArray(my_array,10);
+					break;
 					
 					case 4:
 					shellSort(my_array,10);
 					reverseArray(my_array,0,9);
 					printf("shellSort ile buyukten kucuge siralanmis hali :");
 					printArray(my_array,10);
+					break;
 				}
 			}								
 	}
