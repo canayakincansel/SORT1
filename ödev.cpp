@@ -7,9 +7,10 @@ void randomarray()
 {
 	int i,my_array[10];
 
-for (i = 0; i < 9; i++) {
-    my_array[i] = rand() % 100;
-}
+	for (i = 0; i < 9; i++)
+	 {
+	    my_array[i] = rand() % 100;
+	 }
 }
 
 void swap(int *xp, int *yp) 
@@ -110,7 +111,6 @@ void printArray(int arr[], int size)
 int main(){
 	
 	int secim,secim2,secim3;
-		srand(time(NULL));
 	printf("===================== MENU ====================\n");
 	printf("1) Bir siralama algoritmasi secerek diziyi siralayiniz.\n");
 	printf("2) Tum siralama algoritmalarini karsilastiriniz.\n");
@@ -129,48 +129,71 @@ int main(){
 	
 				printf("seciminiz...:");
 				scanf("%d", &secim2);
-									switch(secim2){
-									
-									case 1:
-										printf("bubble sort sectin");
-										break;
-											
-									case 2:
-										printf("selection sort sectin");
-										break;
-									case 3:
-										printf("insertion sort sectin");
-										break;
-									case 4:
-										printf("shell sort sectin");
-										break;
-													
-									
-									default:
-											printf("HATA: Bilinmeyen bir değer girdiniz!\n");
-											return 0;
-									}
-						
-						printf("Siralama sekli:\n 1.	Kucukten Buyuge\n 2.	Buyukten Kucuge\n Seciminiz...:")	;	
-							scanf("%d", &secim3);
-							if(secim3!=1 && secim3!=2)
-							printf("lutfen sadece 1-2 seceneklerini giriniz...");	
+				if(secim2!=1 && secim2!=2 && secim2!=3 && secim2!=4)
+				{
+				printf("HATA: Bilinmeyen bir deger girdiniz!\n");
+				return 0;
+				}
+				
+				
+			srand(time(NULL));
+			int i,my_array[10];
+			for (i = 0; i < 10; i++)
+			  my_array[i] = rand() % 100;
+			  printf("rastgele elemanlar: ");
+			  printArray(my_array,10);
+			  
 							
-							int i,my_array[10];
-							for (i = 0; i < 10; i++)
-							    my_array[i] = rand() % 100;
-							    
-							    if (secim2==1)
-							    bubbleSort(my_array,10); 
-							    printArray(my_array,10);
-							   
+				printf("Siralama sekli:\n 1.	Kucukten Buyuge\n 2.	Buyukten Kucuge\n Seciminiz...:")	;	
+				scanf("%d", &secim3);
+				if(secim3!=1 && secim3!=2){
+				printf("lutfen sadece 1-2 seceneklerini giriniz...");	
+				return 0 ;
+				}
+				
+				if(secim3==1)
+				{
+					switch(secim2)
+					{
+					case 1:
+					bubbleSort(my_array,10); 
+					printf("bubbleSort ile kucukten buyuge siralanmis hali : ");
+					printArray(my_array,10);
+					break;
+				
+					case 2:
+					selectionSort(my_array,10);
+					printf("selectionSort ile kucukten buyuge siralanmis hali :");
+					printArray(my_array,10);
+					break;
+					
+					case 3:
+					insertionSort(my_array,10);
+					printf("insertionSort ile kucukten buyuge siralanmis hali :");
+					printArray(my_array,10);
+					
+					case 4:
+					shellSort(my_array,10);
+					printf("shellSort ile kucukten buyuge siralanmis hali :");
+					printArray(my_array,10);
+				}
+				
+	
+				
+						
+				
+				}
+						   
 								
-							}
+	}
 				else if (secim==2) 
 					printf("gelistiricez....");	
 				
-				else
+				else{
+				
 					printf("Lutfen 1 ya da 2 secenegini giriniz...");
+					return 0;
+				}
 					
 					
 }
