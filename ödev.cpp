@@ -98,6 +98,20 @@ void selectionSort(int arr[], int n)
         swap(&arr[min_idx], &arr[i]); 
     } 
 } 
+
+/* Function to reverse arr[] from start to end*/
+void reverseArray(int arr[], int start, int end) 
+{ 
+    int temp; 
+    while (start < end) 
+    { 
+        temp = arr[start];    
+        arr[start] = arr[end]; 
+        arr[end] = temp; 
+        start++; 
+        end--; 
+    }    
+}    
   
 /* Function to print an array */
 void printArray(int arr[], int size) 
@@ -140,14 +154,14 @@ int main(){
 			int i,my_array[10];
 			for (i = 0; i < 10; i++)
 			  my_array[i] = rand() % 100;
-			  printf("rastgele elemanlar: ");
-			  printArray(my_array,10);
+			printf("rastgele elemanlar: ");
+			printArray(my_array,10);
 			  
 							
 				printf("Siralama sekli:\n 1.	Kucukten Buyuge\n 2.	Buyukten Kucuge\n Seciminiz...:")	;	
 				scanf("%d", &secim3);
 				if(secim3!=1 && secim3!=2){
-				printf("lutfen sadece 1-2 seceneklerini giriniz...");	
+				printf("lutfen sadece 1 veya 2 seceneklerini giriniz...");	
 				return 0 ;
 				}
 				
@@ -177,14 +191,38 @@ int main(){
 					printf("shellSort ile kucukten buyuge siralanmis hali :");
 					printArray(my_array,10);
 				}
+		}
+		        if(secim3==2)
+				{
+					switch(secim2)
+					{
+					case 1:
+					bubbleSort(my_array,10); 
+					reverseArray(my_array,0,9);
+					printf("bubbleSort ile buyukten kucuge siralanmis hali : ");
+					printArray(my_array,10);
+					break;
 				
-	
-				
-						
-				
+					case 2:
+					selectionSort(my_array,10);
+					reverseArray(my_array,0,9);
+					printf("selectionSort ile buyukten kucuge siralanmis hali :");
+					printArray(my_array,10);
+					break;
+					
+					case 3:
+					insertionSort(my_array,10);
+					reverseArray(my_array,0,9);
+					printf("insertionSort ile buyukten kucuge siralanmis hali :");
+					printArray(my_array,10);
+					
+					case 4:
+					shellSort(my_array,10);
+					reverseArray(my_array,0,9);
+					printf("shellSort ile buyukten kucuge siralanmis hali :");
+					printArray(my_array,10);
 				}
-						   
-								
+			}								
 	}
 				else if (secim==2) 
 					printf("gelistiricez....");	
