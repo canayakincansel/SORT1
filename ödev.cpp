@@ -3,21 +3,61 @@
 #include <math.h> 
 #include <time.h>
 
-void randomarray()
-{
-	int i,my_array[10];
-
-	for (i = 0; i < 9; i++)
-	 {
-	    my_array[i] = rand() % 100;
-	 }
-}
-
 void swap(int *xp, int *yp) 
 { 
     int temp = *xp; 
     *xp = *yp; 
     *yp = temp; 
+} 
+
+// A function to implement bubble sort 
+void bubbleSort(int arr[], int n) 
+{ 
+   int i, j; 
+   for (i = 0; i < n-1; i++)       
+  
+       // Last i elements are already in place    
+       for (j = 0; j < n-i-1; j++)  
+           if (arr[j] > arr[j+1]) 
+              swap(&arr[j], &arr[j+1]); 
+} 
+
+void selectionSort(int arr[], int n) 
+{ 
+    int i, j, min_idx; 
+  
+    // One by one move boundary of unsorted subarray 
+    for (i = 0; i < n-1; i++) 
+    { 
+        // Find the minimum element in unsorted array 
+        min_idx = i; 
+        for (j = i+1; j < n; j++) 
+          if (arr[j] < arr[min_idx]) 
+            min_idx = j; 
+  
+        // Swap the found minimum element with the first element 
+        swap(&arr[min_idx], &arr[i]); 
+    } 
+} 
+/* Function to sort an array using insertion sort*/
+void insertionSort(int arr[], int n) 
+{ 
+   int i, key, j; 
+   for (i = 1; i < n; i++) 
+   { 
+       key = arr[i]; 
+       j = i-1; 
+  
+       /* Move elements of arr[0..i-1], that are 
+          greater than key, to one position ahead 
+          of their current position */
+       while (j >= 0 && arr[j] > key) 
+       { 
+           arr[j+1] = arr[j]; 
+           j = j-1; 
+       } 
+       arr[j+1] = key; 
+   } 
 } 
 
 int shellSort(int arr[], int n) 
@@ -48,56 +88,6 @@ int shellSort(int arr[], int n)
     return 0; 
 } 
 
-// A function to implement bubble sort 
-void bubbleSort(int arr[], int n) 
-{ 
-   int i, j; 
-   for (i = 0; i < n-1; i++)       
-  
-       // Last i elements are already in place    
-       for (j = 0; j < n-i-1; j++)  
-           if (arr[j] > arr[j+1]) 
-              swap(&arr[j], &arr[j+1]); 
-} 
-
-/* Function to sort an array using insertion sort*/
-void insertionSort(int arr[], int n) 
-{ 
-   int i, key, j; 
-   for (i = 1; i < n; i++) 
-   { 
-       key = arr[i]; 
-       j = i-1; 
-  
-       /* Move elements of arr[0..i-1], that are 
-          greater than key, to one position ahead 
-          of their current position */
-       while (j >= 0 && arr[j] > key) 
-       { 
-           arr[j+1] = arr[j]; 
-           j = j-1; 
-       } 
-       arr[j+1] = key; 
-   } 
-} 
-  
-void selectionSort(int arr[], int n) 
-{ 
-    int i, j, min_idx; 
-  
-    // One by one move boundary of unsorted subarray 
-    for (i = 0; i < n-1; i++) 
-    { 
-        // Find the minimum element in unsorted array 
-        min_idx = i; 
-        for (j = i+1; j < n; j++) 
-          if (arr[j] < arr[min_idx]) 
-            min_idx = j; 
-  
-        // Swap the found minimum element with the first element 
-        swap(&arr[min_idx], &arr[i]); 
-    } 
-} 
 
 /* Function to reverse arr[] from start to end*/
 void reverseArray(int arr[], int start, int end) 
@@ -123,16 +113,17 @@ void printArray(int arr[], int size)
 }
 
 int main(){
-	
-	int secim,secim2,secim3;
+
+	char secim;
+	int secim2,secim3;
 	printf("===================== MENU ====================\n");
-	printf("1) Bir siralama algoritmasi secerek diziyi siralayiniz.\n");
-	printf("2) Tum siralama algoritmalarini karsilastiriniz.\n");
+	printf("A) Bir siralama algoritmasi secerek diziyi siralayiniz.\n");
+	printf("B) Tum siralama algoritmalarini karsilastiriniz.\n");
 	printf("seciminiz...:");
 
-	scanf("%d", &secim);
+	scanf("%c", &secim);
 	
-	if(secim==1){
+	if(secim=='A' || secim=='a'){
 		
 	
 				printf("Siralama Algoritmasi Seciniz:\n");
@@ -153,7 +144,7 @@ int main(){
 			srand(time(NULL));
 			int i,my_array[10];
 			for (i = 0; i < 10; i++)
-			  my_array[i] = rand() % 100;
+			my_array[i] =1+ rand() % 100;
 			printf("rastgele elemanlar: ");
 			printArray(my_array,10);
 			  
@@ -228,14 +219,37 @@ int main(){
 				}
 			}								
 	}
-				else if (secim==2) 
-					printf("gelistiricez....");	
+
+	else if (secim=='B' || secim=='b') 
+	{
 				
-				else{
+		srand(time(NULL));
+		int i,my_array2[50000];
+		for (i = 0; i < 50000; i++)
+		my_array2[i] = 1+rand() % 200000;
+			 	
+			 	
+			 	
+		/* ÇALIÞMIYOR??
+		
+		clock_t start, end;
+		start=clock();
+
+		bubbleSort(my_array2,50000);
+		
+		end = clock();
+		printf("siralama suresi= %f",end-start);
+		*/
+
+		
+	}
 				
-					printf("Lutfen 1 ya da 2 secenegini giriniz...");
-					return 0;
-				}
+	else
+	{
+				
+	printf("Lutfen A ya da B secenegini giriniz...");
+	return 0;
+	}
 					
 					
 }
