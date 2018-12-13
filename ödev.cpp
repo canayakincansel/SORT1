@@ -232,6 +232,7 @@ int main(){
 			 	
 		// ÇALIÞMIYOR?? 
 		//çalýþýyorda yamuk yapýyo yamuk
+		/*
 		
 		time_t start, end, total;
 		start=time(0);
@@ -243,7 +244,36 @@ int main(){
 		total = (double)(end - start) / CLOCKS_PER_SEC;
 		printf("siralama suresi= %f",total);
 		
-
+*/
+	time_t start, end, duration;
+    printf ("Lutfen Bekleyiniz\n");
+    
+    
+    start = time (0);
+   	bubbleSort(my_array2,50000);
+    end = time (0);
+    duration = end - start;
+    printf ("Bubble Sort siralama suresi = %d\n", duration);
+   
+    start = time (0);
+   	selectionSort(my_array2,50000);
+    end = time (0);
+    duration = end - start;
+    printf ("SelectionSort siralama suresi= %d\n", duration);
+    
+    start = time (0);
+   	insertionSort(my_array2,50000);
+    end = time (0);
+    duration = end - start;
+    printf ("insertion sort siralama suresi= %d\n", duration);
+    
+    start = time (0);
+   	shellSort(my_array2,50000);
+    end = time (0);
+    duration = end - start;
+    printf ("Shellsort siralama suresi= %d\n", duration);
+    
+    return 0;
 		
 	}
 				
