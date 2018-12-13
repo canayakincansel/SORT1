@@ -230,16 +230,19 @@ int main(){
 			 	
 			 	
 			 	
-		/* ÇALIÞMIYOR??
+		// ÇALIÞMIYOR?? 
+		//çalýþýyorda yamuk yapýyo yamuk
 		
-		clock_t start, end;
-		start=clock();
+		time_t start, end, total;
+		start=time(0);
+		printf("arrayin ilk indexi : %d\n",my_array2[0]);
 
 		bubbleSort(my_array2,50000);
+		printf("arrayin ilk indexi : %d\n",my_array2[0]);
+		end = time(0);
+		total = (double)(end - start) / CLOCKS_PER_SEC;
+		printf("siralama suresi= %f",total);
 		
-		end = clock();
-		printf("siralama suresi= %f",end-start);
-		*/
 
 		
 	}
