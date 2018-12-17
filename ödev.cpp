@@ -224,11 +224,18 @@ int main(){
 	{
 				
 		srand(time(NULL));
-		int i,my_array2[50000];
+		int i,my_array2[50000],my_array3[50000],my_array4[50000],my_array5[50000];
 		for (i = 0; i < 50000; i++)
 		my_array2[i] = 1+rand() % 200000;
-			 	
-			 	
+		
+		for (i = 0; i < 50000; i++)
+		my_array3[i] = 1+rand() % 200000;
+		
+		for (i = 0; i < 50000; i++)
+		my_array4[i] = 1+rand() % 200000;
+		
+		for (i = 0; i < 50000; i++)
+		my_array5[i] = 1+rand() % 200000;	 	
 			 	
 		// ÇALIŞMIYOR?? 
 		//çalışıyorda yamuk yapıyo yamuk
@@ -254,21 +261,21 @@ int main(){
     end = time (0);
     duration = end - start;
     printf ("Bubble Sort siralama suresi = %d\n", duration);
-   
+    
     start = time (0);
-   	selectionSort(my_array2,50000);
+   	selectionSort(my_array3,50000);
     end = time (0);
     duration = end - start;
     printf ("SelectionSort siralama suresi= %d\n", duration);
-    
+       
     start = time (0);
-   	insertionSort(my_array2,50000);
+   	insertionSort(my_array4,50000);
     end = time (0);
     duration = end - start;
     printf ("insertion sort siralama suresi= %d\n", duration);
     
     start = time (0);
-   	shellSort(my_array2,50000);
+   	shellSort(my_array5,50000);
     end = time (0);
     duration = end - start;
     printf ("Shellsort siralama suresi= %d\n", duration);
